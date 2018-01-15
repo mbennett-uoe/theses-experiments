@@ -1,10 +1,10 @@
 #import os
 results = []
-with open("alma2.txt", "w") as out:
+with open("alma3.txt", "w") as out:
     current = {}
-    with open("alma2.mrk", 'r') as f:
+    with open("alma3.mrk", 'r') as f:
         for line in f:
-            if line.strip() == "":
+            if line.strip() == ""  and current != {}:
                 out.write("%s %s\n"%(current["id"],current["loc"]))
                 current = {}
             else:
@@ -13,4 +13,8 @@ with open("alma2.txt", "w") as out:
                     current["id"] = line[6:].strip()
                 if code == "100":
                     loc = line[6:].strip().split("$0")
-                    current["loc"] = loc[1].split("/")[-1]
+                    if len(loc) == 1:
+                        # no LoC ident
+                        current = {}
+                    else:
+                        current["loc"] = loc[1].split("/")[-1]

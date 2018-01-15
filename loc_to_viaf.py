@@ -1,7 +1,7 @@
 from time import sleep
 import requests
-with open("alma-viaf.txt", "w") as out:
-    with open("alma.txt", "r") as f:
+with open("alma-viaf3.txt", "w") as out:
+    with open("alma3.txt", "r") as f:
         records = f.readlines()
         for record in records:
             rec,id = record.split(" ")
@@ -17,5 +17,5 @@ with open("alma-viaf.txt", "w") as out:
             except Exception as e:
                 print "ERROR! Record %s" %rec
                 print e
-            sleep(5)
+            #sleep(5)
 
