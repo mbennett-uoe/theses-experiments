@@ -139,7 +139,7 @@ for line in p:
 #print alist
 #raw_input()
 
-with open("VIAFmatches2.txt", "w") as out:
+with open("VIAFmatches3.txt", "w") as out:
     with open("noLOC.txt", "r") as f:
         a = 0
         for line in f:
@@ -151,7 +151,7 @@ with open("VIAFmatches2.txt", "w") as out:
                letter = part[0]
                val = part[1:].strip(" ,.")
                data[letter] = val
-            if alma in alist:
+            if alma not in alist: # dont bother looking for things we already matched!
                 result = doSearch(alma, data)
                 if result:
                     line = '%s,"%s","%s"'%(alma,result["id"],result["loc"])
