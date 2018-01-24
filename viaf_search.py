@@ -80,7 +80,7 @@ def viafProcess(results):
 def doSearch(alma, data):
 
     # search preference order
-    precision = ["all", "qual", "date"]#, "name"] # only search if there's more than just a name
+    precision = ["all", "qual", "date", "name"]
     match = ["exact", "all"]
 
     record_data, available_precision = {}, []
@@ -97,7 +97,7 @@ def doSearch(alma, data):
         available_precision.append("all")
 
     # start cycling through searches until we get a result
-    if len(available_precision) >= 2:
+    if len(available_precision) >= 1:
         print "Alma ID: ", alma
         print "Data: ", data
 
