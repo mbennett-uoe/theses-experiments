@@ -37,4 +37,16 @@ with open("alma-viaf5.txt", "r") as f:
             #print "Match! ALMA: %s VIAF: %s Wiki: %s Title: %s"%(rec,id.strip(),wiki,title)
 
 from pprint import pprint
-pprint results
+#pprint results
+
+cs = open("alma-viaf5-gav.csv", "r")
+cs2 = cs.readlines()
+
+index = {}
+for pos, val in enumerate(cs2):
+    key = val.split(",",1)[0]
+    index[key] = pos
+
+
+for x in results:
+    print x, index[x]
