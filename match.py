@@ -49,4 +49,10 @@ for pos, val in enumerate(cs2):
 
 
 for x in results:
-    print x, index[x]
+    #print x, index[x]
+    cs2[index[x]] = cs2[index[x]].replace("False", "True")
+    cs2[index[x]] = cs2[index[x]] + ',"%s"'%",".join(x["VIAF"])
+
+o2c = open ("PossibleMatches.csv", "w")
+o2c.writelines(cs2)
+o2c.close()
